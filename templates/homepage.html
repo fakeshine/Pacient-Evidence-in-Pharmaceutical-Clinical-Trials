@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p style="background-image: url('pharma.jpg');"></p>
+
+<table class="table caption-top" , style="width: 50%">
+    <caption>Lista pacientilor inrolati in studii clinice</caption>
+    <thead>
+    <tr>
+        <th scope="col">idPacient</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Prenume</th>
+        <th scope="col">CNP</th>
+        <th scope="col">IMC</th>
+        <th scope="col">Istoric</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for pacient in pacienti %}
+            <tr>
+                <td>{{ pacient.idPacient }}</th>
+                <td>{{ pacient.Nume }}</td>
+                <td>{{ pacient.Prenume }}</td>
+                <td>{{ pacient.CNP }}</td>
+                <td>{{ pacient.IMC }}</td>
+                {% if pacient.Istoric == None %}
+                    <td><b>Fara istoric medical</b></td>
+                {% else %}
+                    <td>{{ pacient.Istoric }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}
