@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table caption-top" , style="width: 50%; position: absolute; top:13%">
+    <caption>All pacients stored in our database</caption>
+    <thead>
+    <tr>
+        <th scope="col">Nume</th>
+        <th scope="col">Prenume</th>
+        <th scope="col">CNP</th>
+        <th scope="col">IMC</th>
+        <th scope="col">Istoric</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for pacient in pacienti %}
+            <tr>
+                <td>{{ pacient.Nume }}</td>
+                <td>{{ pacient.Prenume }}</td>
+                <td>{{ pacient.CNP }}</td>
+                <td>{{ pacient.IMC }}</td>
+                {% if pacient.Istoric == None or pacient.Istoric == 'unknown' %}
+                    <td><b>Fara istoric medical </b></td>
+                {% else %}
+                    <td>{{ pacient.Istoric }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}

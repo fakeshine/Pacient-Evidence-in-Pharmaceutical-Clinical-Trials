@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table caption-top" , style="width: 50%; position: absolute; top: 13%;">
+    <caption>All studies</caption>
+    <thead>
+    <tr>
+        <th scope="col">Study Title</th>
+        <th scope="col">Disease</th>
+        <th scope="col">Drug Name</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Active Ingredient</th>
+        <th scope="col">Doctor Name</th>
+        <th scope="col">Pacients Enrolled</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for study in studies %}
+
+            <tr>
+                <td>{{ study.Denumire_Studiu }}</th>
+                <td>{{ study.Boala_Tinta }}</td>
+                <td>{{ study.Denumire_Medicament }}</td>
+                <td>{{ study.Producator }}</td>
+                <td>{{ study.Substanta_Activa }}</td>
+                <td>{{ study.Doctor_Name }}</td>
+                <td>{{ study.Pacients_enrolled }}</td>
+                <td>
+                    <a href="{{ url_for('delete' , study_title = study.Denumire_Studiu ) }}" class="btn btn-danger" type="submit" style="color: white;">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}

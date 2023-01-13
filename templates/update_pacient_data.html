@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Search Box FIlter -->
+
+<form action="/update_pacient_data" method="POST" style="position: absolute;
+             top: 250px;
+             left: 500px;
+             border-style: groove;
+             border-radius: 10px;
+             padding: 50px;">
+
+    <h1 style="text-align: center;">Identify Pacient</h1>
+
+    <!-- Pacient ID -->
+
+    <div class="form-row">
+        <div class="form-row"></div>
+        <label for="validationServer01"> CNP </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="6050813005578" required name="cnp" id="cnp">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+    </div>
+
+    <div class="form-row" style="text-align: center;">
+      <div class="form-row"></div>
+        <label for="validationServer01"> Study Title </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="Study on Biomarkers for Early Diagnosis of Alzheimer's Disease" required name="study_title" id="study_title" >
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+    </div>
+    <br>
+
+      <!-- Update Pacient Data -->
+
+
+    <h1 style="text-align: center;">Update Pacient Data</h1>
+    <br>
+
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01"> Pacient First Name </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="Anne" name="pacient_first_name" id="pacient_first_name">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Pacient Last Name</label>
+        <input type="text" class="form-control" id="validationServer02" placeholder="Collin" name="pacient_last_name" id="pacient_last_name">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+      </div>
+
+      <div class="col-md-4 mb-3" style="position: absolute; right: 0%;">
+        <label for="validationServer02">BMI (Body Mass Index)</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="normal weight" name="bmi" id="bmi">
+          <!-- <div class="valid-feedback">
+            Looks good!
+          </div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Drug Administration Frequency </label>
+        <input type="text" class="form-control" id="validationServer02" placeholder="every 6 hours" name="drug_frequency" id="drug_frequency">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+      </div>
+      <div class="col-md-4 mb-3" style="position: absolute; right: 0%;">
+        <label for="validationServer02">Drug Quantity / Administration</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="2 pills" name="drug_quantity" id="drug_quantity">
+          <!-- <div class="valid-feedback">
+            Looks good!
+          </div> -->
+      </div>
+    </div>
+    <br>
+
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer03">Stop Year</label>
+        <input type="text" class="form-control" id="validationServer03" placeholder="2023" name="stop_year" id="stop_year">
+        <!-- <div class="invalid-feedback">
+          Please provide a valid year.
+        </div> -->
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer04">Stop Month</label>
+        <input type="text" class="form-control" id="validationServer04" placeholder="September" name="stop_month" id="stop_month">
+        <!-- <div class="invalid-feedback">
+          Please provide a valid month.
+        </div> -->
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer05">Stop Day</label>
+        <input type="text" class="form-control" id="validationServer05" placeholder="13" name="stop_day" id="stop_day">
+        <!-- <div class="invalid-feedback">
+          Please provide a valid month day.
+        </div> -->
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" style="position: absolute;
+                                                         left: 45%;">Update Data</button>
+  </form>
+
+{% endblock %}

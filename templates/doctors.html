@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table caption-top" , style="width: 50%; position: absolute; top:13%">
+    <caption>All our Doctors who are Study Managers</caption>
+    <thead>
+    <tr>
+        <th scope="col">Doctor Name</th>
+        <th scope="col">Study Title</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.Doctor_Name }}</td>
+                <td>{{ doctor.Study_Title }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}

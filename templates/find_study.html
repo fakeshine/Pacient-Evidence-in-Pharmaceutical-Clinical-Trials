@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Search Box FIlter -->
+<h2 style="position: absolute; left:35%; top: 12%;"> Possible Search Variations :
+  <ul>
+    <h5><li>Only Disease</li></h5>
+    <h5><li>Disease + First Name + Last Name</li></h5>
+    <h5><li>Disease + First Name + Last Name + Active Ingredient</li></h5>
+    <h5><li>Disease + First Name + Last Name + Drug Name + Drug Manufacturer + Active Ingredient</li></h5>
+    <h5><li>Disease + Min no. drugs owned by manufacturer</li></h5>
+    <h5><li>Only Physician Specialty</li></h5>    
+  </ul>
+</h2>
+
+<form action="/find_study" method="POST" style="position: absolute;
+             top: 350px;
+             left: 500px;
+             border-style: groove;
+             border-radius: 10px;
+             padding: 50px;">
+    <h1 style="text-align: center;">Find a Study</h1>
+    <a class="btn btn-primary" type="button" href="/all_studies_results"  style="position: absolute;
+    right: 5%; top:13%">All Studies</a>
+
+    <!-- Rand cu boala -->
+
+    <div class="form-row">
+        <div class="form-row"></div>
+        <label for="validationServer01"> Disease / Condition </label>
+        <input type="text" class="form-control" placeholder="Diabetes" name="disease" id="disease">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+    </div>
+    <br>
+
+      <!-- Rand cu physician first name, last name -->
+
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Physician First Name</label>
+        <input type="text" class="form-control" placeholder="Anne" name="physician_first_name" id="physician_first_name" >
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+      </div>
+      <div class="col-md-4 mb-3" style="position: absolute; right: 0%;">
+        <label for="validationServer02">Physician Last Name</label>
+          <input type="text" class="form-control" placeholder="Collin" name="physician_last_name" id="physician_last_name" >
+          <!-- <div class="valid-feedback">
+            Looks good!
+          </div> -->
+      </div>
+    </div>
+    <br>
+
+    <!-- Rand cu drum name, manufacturer, active ingredient -->
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer03">Drug Name</label>
+        <input type="text" class="form-control" placeholder="Comirnaty" name="drug_name" id="drug_name" >
+        <!-- <div class="invalid-feedback">
+          Please provide a valid drug name.
+        </div> -->
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer04">Drug Manufacturer</label>
+        <input type="text" class="form-control" placeholder="Pfizer" name="drug_manufacturer" id="drug_manufacturer">
+        <!-- <div class="invalid-feedback">
+          Please provide a valid drug manufacturer.
+        </div> -->
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer05">Active Ingredient</label>
+        <input type="text" class="form-control" placeholder="Paracetamol" name="active_ingredient" id="active_ingredient">
+        <!-- <div class="invalid-feedback">
+          Please provide a valid active ingredient.
+        </div> -->
+      </div>
+    </div>
+    <br>
+
+    <!-- Rand cu producator cu nr min de medicamente si specialitate medic -->
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Min no. drugs owned by manufacturer</label>
+        <input type="text" class="form-control" placeholder="50" name="no_min_drugs" id="no_min_drugs">
+        <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+      </div>
+      <div class="col-md-4 mb-3" style="position: absolute; right: 0%; bottom: 12.5%;">
+        <label for="validationServer02">Physician Specialty</label>
+          <input type="text" class="form-control" placeholder="Pediatrics" name="physician_specialty" id="physician_specialty" >
+          <!-- <div class="valid-feedback">
+            Looks good!
+          </div> -->
+      </div>
+    </div>
+    <br>
+
+    <button class="btn btn-primary" type="submit" style="position: absolute;
+                                                         left: 45%;">Find</button>
+    
+  </form>
+
+
+  <!-- RESULTS -->
+
+
+  <table class="table caption-top" , style="width: 50%; position: absolute; top: 1000px;">
+    <caption>Studies shown</caption>
+    <thead>
+    <tr>
+        <th scope="col">Study Title</th>
+        <th scope="col">Disease</th>
+        <th scope="col">Drug Name</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Active Ingredient</th>
+        <th scope="col">Doctor Name</th>
+        <th scope="col">Pacients Enrolled</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for study in studies %}
+            <tr>
+                <td>{{ study.Denumire_Studiu }}</th>
+                <td>{{ study.Boala_Tinta }}</td>
+                <td>{{ study.Denumire_Medicament }}</td>
+                <td>{{ study.Producator }}</td>
+                <td>{{ study.Substanta_Activa }}</td>
+                <td>{{ study.Doctor_Name }}</td>
+                <td>{{ study.Pacients_enrolled }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+
+{% endblock %}
+

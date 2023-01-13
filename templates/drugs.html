@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table caption-top" , style="width: 50%; position: absolute; top:13%">
+    <caption>All drugs enlisted in our databse</caption>
+    <thead>
+    <tr>
+        <th scope="col">Drug Name</th>
+        <th scope="col">Side Effect</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for drug in drugs %}
+            <tr>
+                <td>{{ drug.Drug_Name }}</td>
+                <td>{{ drug.Side_Effect }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}

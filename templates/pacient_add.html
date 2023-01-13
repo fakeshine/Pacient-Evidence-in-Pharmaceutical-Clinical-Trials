@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Search Box FIlter -->
+
+<form action="/pacient_add" method="POST" style="position: absolute;
+             top: 250px;
+             left: 500px;
+             border-style: groove;
+             border-radius: 10px;
+             padding: 50px;">
+    <h1 style="text-align: center;">Enroll New Pacient</h1>
+    <br>
+
+    <!-- Pacient ID -->
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01"> Pacient First Name </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="Anne" required name="pacient_first_name" id="pacient_first_name">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Pacient Last Name</label>
+        <input type="text" class="form-control" id="validationServer02" placeholder="Collin" required name="pacient_last_name" id="pacient_last_name">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3" style="position: absolute; right: 0%;">
+        <label for="validationServer02">CNP</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="6050813005578" required name="cnp" id="cnp">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div>
+    </div>
+    <br>
+
+      <!-- Title of the study that the pacient wants to enroll in -->
+
+
+    <div class="form-row" style="text-align: center;">
+      
+      <div class="form-row"></div>
+        <label for="validationServer01"> Study Title </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="Study on Biomarkers for Early Diagnosis of Alzheimer's Disease" required name="study_title" id="study_title">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      
+    </div>
+    <br>
+
+      <!-- Pacient medical history -->
+
+    <div class="form-row" style="text-align: center;">
+      
+      <div class="form-row"></div>
+        <label for="validationServer01"> Pacient Medical History </label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="Traumas, past surgeries, drug use, medications, childhood illnesses" name="medical_history" id="medical_history">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      
+    </div>
+    <br>
+
+    <!-- Rand cu drum name, manufacturer, active ingredient -->
+
+    <div class="form-row" style="text-align: center;">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer03">Start Year</label>
+        <input type="text" class="form-control" id="validationServer03" placeholder="2023" name="start_year" id="start_year">
+        <div class="invalid-feedback">
+          Please provide a valid year.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer04">Start Month</label>
+        <input type="text" class="form-control" id="validationServer04" placeholder="09" name="start_month" id="start_month">
+        <div class="invalid-feedback">
+          Please provide a valid month.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationServer05">Start Day</label>
+        <input type="text" class="form-control" id="validationServer05" placeholder="13" name="start_day" id="start_day">
+        <div class="invalid-feedback">
+          Please provide a valid month day.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" style="position: absolute;
+                                                         left: 42%;">Submit for approval</button>
+  </form>
+
+{% endblock %}

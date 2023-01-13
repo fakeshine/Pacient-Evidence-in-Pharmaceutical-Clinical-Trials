@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table caption-top" , style="width: 50%; position: absolute; top:13%">
+    <caption>All pacients enrolled in clinical pharmaceutical trials</caption>
+    <thead>
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">CNP</th>
+        <th scope="col">Body Mass Index</th>
+        <th scope="col">Medical History</th>
+        <th scope="col">Study Title</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">Stop Date</th>
+        <th scope="col">Drug Frequency</th>
+        <th scope="col">Drug Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for pacient in pacients %}
+            <tr>
+                <td>{{ pacient.First_Name }}</td>
+                <td>{{ pacient.Last_Name }}</td>
+                <td>{{ pacient.CNP }}</td>
+                <td>{{ pacient.BMI }}</td>
+                {% if pacient.Med_history == None or pacient.Istoric == 'unknown' %}
+                    <td><b>Unknown Medical History</b></td>
+                {% else %}
+                    <td>{{ pacient.Med_history }}</td>
+                {% endif %}
+
+                <td>{{ pacient.Study_Title }}</td>
+
+                {% if pacient.Start_Date == None %}
+                    <td><b>Unknown</b></td>
+                {% else %}
+                    <td>{{ pacient.Start_Date }}</td>
+                {% endif %}
+
+                {% if pacient.Start_Date == None %}
+                    <td><b>Unknown</b></td>
+                {% else %}
+                    <td>{{ pacient.Stop_Date }}</td>
+                {% endif %}
+                
+                <td>{{ pacient.Drug_Frequency }}</td>
+                <td>{{ pacient.Drug_Quantity }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}
